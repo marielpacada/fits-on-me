@@ -1,4 +1,4 @@
-// authorize app with clarifai
+// authorize clarifai app
 const { ClarifaiStub, grpc } = require("clarifai-nodejs-grpc");
 const stub = ClarifaiStub.grpc();
 const metadata = new grpc.Metadata();
@@ -6,7 +6,7 @@ metadata.set("authorization", "Key e68ac66f04164956a747592514e63ca0");
 
 // require file system
 const fs = require("fs");
-const imageBytes = fs.readFileSync("images/yel.jpeg");
+const imageBytes = fs.readFileSync("test.jpeg");
 
 stub.PostModelOutputs(
     {
