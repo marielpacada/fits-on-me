@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/marielpacada/fits-on-me/issues"
   },
-  "homepage": "https://github.com/marielpacada/fits-on-me#readme"
+  "homepage": "https://github.com/marielpacada/fits-on-me#readme",
+  "dependencies": {
+    "clarifai-nodejs-grpc": "^7.4.0"
+  }
 }
