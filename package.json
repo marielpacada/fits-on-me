@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/marielpacada/fits-on-me#readme",
   "dependencies": {
-    "clarifai-nodejs-grpc": "^7.4.0"
+    "clarifai-nodejs-grpc": "^7.4.0",
+    "fs": "^0.0.1-security"
   }
 }
