@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "dependencies": {
     "clarifai-nodejs-grpc": "^7.4.0",
     "fs": "^0.0.1-security",
-    "mongoose": "^5.12.7"
+    "mongoose": "^5.12.7",
+    "node-fetch": "^2.6.1"
   }
 }
