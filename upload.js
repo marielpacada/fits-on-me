@@ -2,8 +2,11 @@
 const { ClarifaiStub, grpc } = require("clarifai-nodejs-grpc");
 const stub = ClarifaiStub.grpc();
 const metadata = new grpc.Metadata();
-metadata.set("authorization", "Key e68ac66f04164956a747592514e63ca0");
+const key = require("./secrets/auth").key;
+metadata.set("authorization", "Key " + key);
 
+
+// connect to mongoose
 const fs = require("fs");
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost:27017/fitDB", { useNewUrlParser: true, useUnifiedTopology: true });
@@ -15,23 +18,22 @@ const fitSchema = new mongoose.Schema({
 
 const Fit = mongoose.model("Fit", fitSchema);
 
-Fit.insertMany([
-    { bytes: fs.readFileSync("test.jpeg"), color: "red" },
-    { bytes: fs.readFileSync("test.jpeg"), color: "blue" }
-]);
+// Fit.insertMany([
+//     { bytes: fs.readFileSync("test.jpeg"), color: "red" }
+// ]);
 
 
 
-// Fit.find(function(error, fits) {
-//     if (error) { 
-//         console.log(error)
-//     } else { 
-//         mongoose.connection.close();
-//         for (var fit in fits) { 
-//             console.log(fits[fit].color);
-//         }
-//     }
-// });
+Fit.find({color: "red"}, function(error, fits) {
+    if (error) { 
+        console.log(error)
+    } else { 
+        mongoose.connection.close();
+        for (var fit in fits) { 
+            console.log(fits[fit].color);
+        }
+    }
+});
 
 
 
